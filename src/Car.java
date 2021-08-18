@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.Calendar;
 
 public class Car {
-    public int id;
-    public String brand;
-    public String model;
-    public int yearOfProduction;
-    public String colour;
-    public int price;
-    public int registerNumber;
+    private int id;
+    private String brand;
+    private String model;
+    private int yearOfProduction;
+    private String colour;
+    private int price;
+    private int registerNumber;
 
     public Car(int id, String brand, String model, int yearOfProduction, String colour, int price, int registerNumber) {
         this.id = id;

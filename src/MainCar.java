@@ -3,7 +3,7 @@ import java.util.Calendar;
 
 public class MainCar {
 
-    public static void printCarList(Car[] array, String brand){
+    public static void filterCarsByBrand(Car[] array, String brand){
         ArrayList<Car> resultingList = new ArrayList<>();
         for(Car car: array){
             if(car.getBrand().equals(brand))
@@ -12,7 +12,7 @@ public class MainCar {
         System.out.println(resultingList);
     }
 
-    public static void printCarList(Car[] array, String model, int usingYears){
+    public static void filterCarsByModelAndUsingYears(Car[] array, String model, int usingYears){
         ArrayList<Car> resultingList = new ArrayList<>();
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
@@ -24,7 +24,7 @@ public class MainCar {
     }
 
 
-    public static void printCarList(Car[] array, int yearOfProduction, int price){
+    public static void filterCarsByYearOfProductionAndPrice(Car[] array, int yearOfProduction, int price){
         ArrayList<Car> resultingList = new ArrayList<>();
         for(Car car: array){
             if(car.getYearOfProduction() == yearOfProduction && car.getPrice() > price)
@@ -40,8 +40,8 @@ public class MainCar {
         array[3] = new Car(101, "Lexus", "GS", 2000, "black", 2000, 101008);
         array[4] = new Car(110, "Lada", "Granta", 2003, "blue", 1000, 101000);
 
-        printCarList(array, "Lexus");
-        printCarList(array, "Camry", 1);
-        printCarList(array, 2003, 500);
+        filterCarsByBrand(array, "Lexus");
+        filterCarsByModelAndUsingYears(array, "Camry", 1);
+        filterCarsByYearOfProductionAndPrice(array, 2003, 500);
     }
 }
