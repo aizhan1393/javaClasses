@@ -3,47 +3,35 @@ package Optional1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+
 
 public class task3 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        HashMap<Integer, Integer> map = new HashMap<>();
+        int[][] array = new int[2][10];
 
-
-        for(int i = 0; i < 10; i++){
+        for(int j = 0; j < 10; j++){
             String temp = reader.readLine();
-            int tempInt = Integer.parseInt(temp);
-            map.put(tempInt, temp.length());
+            array[0][j] = Integer.parseInt(temp);
+            array[1][j] = temp.length();
         }
         reader.close();
 
-
-        List<Integer> lengthNumber = new ArrayList<>(map.values());
-        Set<Integer> set = new HashSet<>(lengthNumber);
-        lengthNumber.clear();
-        lengthNumber.addAll(set);
-        Collections.sort(lengthNumber);
-
-
-        lengthNumber = new ArrayList<>(map.values());
-        Collections.sort(lengthNumber);
-
-
         int sum = 0;
-        for (Integer integer : lengthNumber) {
-            sum = sum + integer;
+        for (int j = 0; j < 10; j++) {
+            sum = sum + array[1][j];
         }
         int averageLength = sum / 10;
+        System.out.println(averageLength);
 
-        for (Map.Entry<Integer, Integer> pair : map.entrySet()) {
-            if (pair.getValue() > averageLength)
-                System.out.println(pair.getKey() + " has the length bigger than average length: " + pair.getValue());
+        for (int j = 0; j < 10; j++) {
+            if (array[1][j] > averageLength)
+                System.out.println(array[0][j] + " has the length longer than average length: " + array[1][j]);
         }
 
-        for (Map.Entry<Integer, Integer> pair : map.entrySet()) {
-            if (pair.getValue() < averageLength)
-                System.out.println(pair.getKey() + " has the length smaller than average length: " + pair.getValue());
+        for (int j = 0; j < 10; j++) {
+            if (array[1][j] < averageLength)
+                System.out.println(array[0][j] + " has the length shorter than average length: " + array[1][j]);
         }
     }
 }
