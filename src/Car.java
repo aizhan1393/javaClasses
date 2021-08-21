@@ -1,8 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.Calendar;
-
 public class Car {
     private int id;
     private String brand;
